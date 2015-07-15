@@ -65,7 +65,7 @@ class AGFAQ_FAQ_CPT {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title' )
+			'supports'           => array( 'title', 'editor' ),
 		);
 
 		register_post_type( $this->post_type, $args );
