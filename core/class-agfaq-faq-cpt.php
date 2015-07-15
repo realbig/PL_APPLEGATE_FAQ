@@ -55,12 +55,14 @@ class AGFAQ_FAQ_CPT {
 
 		$args = array(
 			'labels'             => $labels,
-			'public'             => false,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
 			'menu_icon'          => 'dashicons-' . $this->icon,
+			'rewrite' => array(
+				'slug' => 'faqs',
+			),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -94,6 +96,7 @@ class AGFAQ_FAQ_CPT {
 		register_taxonomy( 'faq-bucket', 'faq', array(
 			'labels' => $labels,
 			'hierarchical' => true,
+			'show_admin_column' => true,
 		) );
 
 	}
