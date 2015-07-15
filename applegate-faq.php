@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Applegate FAQ
- * Description: Description.
+ * Description: Creates the "FAQ" custom post type.
  * Author: Joel Worsham
  * Author URI: http://realbigmarketing.com
  * Version: 0.1.0
@@ -26,6 +26,8 @@ define( 'AGFAQ_URL', plugins_url( '', __FILE__ ) );
  * @package AGFAQ
  */
 class AGFAQ {
+
+	public $faq;
 
 	private function __clone() { }
 
@@ -68,6 +70,9 @@ class AGFAQ {
 	 * @since 0.1.0
 	 */
 	public function require_necessities() {
+
+		require_once __DIR__ . '/core/class-agfaq-faq-cpt.php';
+		$this->faq = new AGFAQ_FAQ_CPT();
 	}
 
 	/**

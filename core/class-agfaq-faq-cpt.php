@@ -1,6 +1,6 @@
 <?php
 /**
- * Creates and manages the slides CPT.
+ * Creates and manages the FAQ CPT.
  *
  * @since      0.1.0
  *
@@ -12,12 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class MyTheme_Document_CPT {
+class AGFAQ_FAQ_CPT {
 
-	private $post_type = 'posttype';
-	private $label_singular = 'PostType';
-	private $label_plural = 'PostTypes';
-	private $icon = 'admin-generic';
+	private $post_type = 'faq';
+	private $label_singular = 'FAQ';
+	private $label_plural = 'FAQs';
+	private $icon = 'format-status';
 
 	private $meta_fields = array();
 
@@ -69,6 +69,33 @@ class MyTheme_Document_CPT {
 		);
 
 		register_post_type( $this->post_type, $args );
+
+		// Taxonomies
+		$label_single = 'Bucket';
+		$label_plural = 'Buckets';
+
+		$labels = array(
+			'name'               => $label_plural,
+			'singular_name'      => $label_single,
+			'menu_name'          => $label_plural,
+			'name_admin_bar'     => $label_single,
+			'add_new'            => "Add New",
+			'add_new_item'       => "Add New $label_single",
+			'new_item'           => "New $label_single",
+			'edit_item'          => "Edit $label_single",
+			'view_item'          => "View $label_single",
+			'all_items'          => "All $label_plural",
+			'search_items'       => "Search $label_plural",
+			'parent_item_colon'  => "Parent $label_plural:",
+			'not_found'          => "No $label_plural found.",
+			'not_found_in_trash' => "No $label_plural found in Trash.",
+		);
+
+		register_taxonomy( 'faq-bucket', 'faq', array(
+			'labels' => $labels,
+			'hierarchical' => true,
+		) );
+
 	}
 
 	function _post_messages( $messages ) {
