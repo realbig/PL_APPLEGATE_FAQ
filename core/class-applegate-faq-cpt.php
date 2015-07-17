@@ -4,15 +4,15 @@
  *
  * @since      0.1.0
  *
- * @package    MyTheme
- * @subpackage MyTheme/core
+ * @package    ApplegateFAQ
+ * @subpackage ApplegateFAQ/core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class AGFAQ_FAQ_CPT {
+class APPLEGATE_FAQ_CPT {
 
 	private $post_type = 'faq';
 	private $label_singular = 'FAQ';

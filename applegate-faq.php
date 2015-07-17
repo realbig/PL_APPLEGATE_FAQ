@@ -12,20 +12,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'AGFAQ_VERSION', '1.0.1' );
-define( 'AGFAQ_DIR', plugin_dir_path( __FILE__ ) );
-define( 'AGFAQ_URL', plugins_url( '', __FILE__ ) );
+define( 'APPLEGATE_FAQ_VERSION', '1.0.1' );
+define( 'APPLEGATE_FAQ_DIR', plugin_dir_path( __FILE__ ) );
+define( 'APPLEGATE_FAQ_URL', plugins_url( '', __FILE__ ) );
 
 /**
- * Class AGFAQ
+ * Class APPLEGATE_FAQ
  *
  * Initiates the plugin.
  *
  * @since   0.1.0
  *
- * @package AGFAQ
+ * @package ApplegateFAQ
  */
-class AGFAQ {
+class APPLEGATE_FAQ {
 
 	public $faq;
 
@@ -40,7 +40,7 @@ class AGFAQ {
 	 *
 	 * @staticvar Singleton $instance The *Singleton* instances of this class.
 	 *
-	 * @return AGFAQ The *Singleton* instance.
+	 * @return APPLEGATE_FAQ The *Singleton* instance.
 	 */
 	public static function getInstance() {
 
@@ -71,8 +71,8 @@ class AGFAQ {
 	 */
 	public function require_necessities() {
 
-		require_once __DIR__ . '/core/class-agfaq-faq-cpt.php';
-		$this->faq = new AGFAQ_FAQ_CPT();
+		require_once __DIR__ . '/core/class-applegate-faq-cpt.php';
+		$this->faq = new APPLEGATE_FAQ_CPT();
 	}
 
 	/**
@@ -99,4 +99,4 @@ class AGFAQ {
 }
 
 require_once __DIR__ . '/core/agfaq-functions.php';
-AGFAQ();
+APPLEGATE_FAQ();

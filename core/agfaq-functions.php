@@ -4,8 +4,8 @@
  *
  * @since      0.1.0
  *
- * @package    AGFAQ
- * @subpackage AGFAQ/core
+ * @package    ApplegateFAQ
+ * @subpackage ApplegateFAQ/core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 0.1.0
  *
- * @return AGFAQ
+ * @return APPLEGATE_FAQ
  */
-function AGFAQ() {
-	return AGFAQ::getInstance();
+function APPLEGATE_FAQ() {
+	return APPLEGATE_FAQ::getInstance();
 }
