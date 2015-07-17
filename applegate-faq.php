@@ -4,7 +4,7 @@
  * Description: Creates the "FAQ" custom post type.
  * Author: Joel Worsham
  * Author URI: http://realbigmarketing.com
- * Version: 1.0.1
+ * Version: 1.0.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'APPLEGATE_FAQ_VERSION', '1.0.1' );
+define( 'APPLEGATE_FAQ_VERSION', '1.0.2' );
 define( 'APPLEGATE_FAQ_DIR', plugin_dir_path( __FILE__ ) );
 define( 'APPLEGATE_FAQ_URL', plugins_url( '', __FILE__ ) );
 
