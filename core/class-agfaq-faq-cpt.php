@@ -63,6 +63,7 @@ class AGFAQ_FAQ_CPT {
 			'rewrite' => array(
 				'slug' => 'faqs',
 			),
+			'menu_position' => 58.2,
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
