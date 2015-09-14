@@ -19,7 +19,9 @@ class APPLEGATE_FAQ_CPT {
 	private $label_plural = 'FAQs';
 	private $icon = 'format-status';
 
-	private $meta_fields = array();
+	private $meta_fields = array(
+		'applegate_buckets',
+	);
 
 	function __construct() {
 
@@ -111,15 +113,43 @@ class APPLEGATE_FAQ_CPT {
 	}
 
 	function _add_meta_boxes() {
+
+		add_meta_box(
+			'bucket',
+			'Buckets',
+			array( $this, '_bucket_mb' ),
+			'faq',
+			'side'
+		);
+	}
+
+	function _bucket_mb( $post ) {
+
+		wp_nonce_field( 'applegate_save_product', 'applegate_product_nonce' );
+
+		$buckets = get_post_meta( $post->ID, 'applegate_buckets', true );
+
+		if ( function_exists( 'get_buckets' ) ) {
+			foreach ( get_buckets() as $bucket_ID => $bucket ) {
+				?>
+				<label>
+					<input type="checkbox" name="applegate_buckets[]" value="<?php echo $bucket_ID; ?>"
+						<?php echo in_array( $bucket_ID, $buckets ) ? 'checked' : ''; ?> />
+					<?php echo $bucket['title']; ?>
+				</label>
+				<br/>
+				<?php
+			}
+		}
 	}
 
 	function _save_meta( $post_ID ) {
 
-		if ( ! isset( $_POST['slide_image_nonce_save'] ) ) {
+		if ( ! isset( $_POST['applegate_product_nonce'] ) ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['slide_image_nonce_save'], 'slide_image_nonce' ) ) {
+		if ( ! wp_verify_nonce( $_POST['applegate_product_nonce'], 'applegate_save_product' ) ) {
 			return;
 		}
 
